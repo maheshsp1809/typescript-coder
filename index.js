@@ -34,3 +34,17 @@ function getEmployByRole(employees, targetRole) {
 var targetRole = "president";
 var managerNames = getEmployByRole(arr, targetRole);
 console.log(managerNames);
+//Question 5
+function addNumbers(a, b) {
+    return a + b;
+}
+var result = addNumbers(5, 3);
+console.log(result); // Output: 8
+//Question 6
+function factorial(n) {
+    if (n <= 1)
+        return 1;
+    return n * factorial(n - 1);
+}
+var fact = factorial(5);
+console.log(fact); // Output: 120

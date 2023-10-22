@@ -66,3 +66,20 @@ function getEmployByRole(employees:Employee[],targetRole:string){
 const targetRole="president";
 const managerNames=getEmployByRole(arr,targetRole);
 console.log(managerNames);
+
+//Question 5
+function addNumbers(a: number, b: number): number {
+    return a + b;
+}
+
+const result = addNumbers(5, 3);
+console.log(result); // Output: 8
+
+//Question 6
+function factorial(n: number): number {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+const fact = factorial(5);
+console.log(fact); // Output: 120
