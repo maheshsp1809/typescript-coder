@@ -1,50 +1,19 @@
-"use strict";
-var obj = {
-    name: "Mahesh",
-    price: 45,
-    description: "Mahesh is a good boy"
-};
-console.log(obj);
-function euclid(point1, point2) {
-    var dx = point1.x - point2.x;
-    var dy = point1.y - point2.y;
-    return Math.sqrt(dx * dx + dy * dy);
+const axios = require("axios");
+function main() {
+  fetch("https://sum-server.100xdevs.com/todos").then(async (res) => {
+    const json = await res.json();
+    console.log(json.todos);
+  });
 }
-var pointA = { x: 1, y: 2 };
-var pointB = { x: 4, y: 6 };
-var distance = euclid(pointA, pointA);
-console.log("Euclid distance: ".concat(distance));
-var array = [
-    { name: "John", age: 12, email: "mahesh@gmail.com" },
-    { name: "Bob", age: 28 },
-    { name: "Charlie", age: 22 },
-    { name: "Afroz", age: 25, email: "afroz@gmail.com" }
-];
-var peopleWithoutEmail = array.filter(function (person) { return person.email !== undefined; });
-console.log(peopleWithoutEmail);
-var arr = [{ id: "Id1", name: "Mahesh", role: "president" }, {
-        id: "Id2", name: "afroz", role: "vice president"
-    },
-    { id: "Id3", name: "Alum", role: "former president" },
-];
-function getEmployByRole(employees, targetRole) {
-    var filteredEmployees = employees.filter(function (employee) { return employee.role === targetRole; });
-    return filteredEmployees.map(function (employee) { return employee.name; });
+async function main1() {
+  const res = await fetch("https://sum-server.100xdevs.com/todos");
+  const json = await res.json();
+  console.log(json.todos.length);
 }
-var targetRole = "president";
-var managerNames = getEmployByRole(arr, targetRole);
-console.log(managerNames);
-//Question 5
-function addNumbers(a, b) {
-    return a + b;
+
+async function main3() {
+  const res = await axios.get("https://sum-server.100xdevs.com/todos");
+  console.log(res.data.todos.length);
 }
-var result = addNumbers(5, 3);
-console.log(result); // Output: 8
-//Question 6
-function factorial(n) {
-    if (n <= 1)
-        return 1;
-    return n * factorial(n - 1);
-}
-var fact = factorial(5);
-console.log(fact); // Output: 120
+// main();
+main3();
